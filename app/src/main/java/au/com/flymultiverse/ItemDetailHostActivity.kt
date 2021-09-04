@@ -1,15 +1,15 @@
 package au.com.flymultiverse
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import au.com.flymultiverse.databinding.ActivityItemDetailBinding
+import dagger.android.support.DaggerAppCompatActivity
 
-class ItemDetailHostActivity : AppCompatActivity() {
+class ItemDetailHostActivity : DaggerAppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 

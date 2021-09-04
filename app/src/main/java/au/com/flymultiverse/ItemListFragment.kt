@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import au.com.flymultiverse.placeholder.PlaceholderContent;
 import au.com.flymultiverse.databinding.FragmentItemListBinding
 import au.com.flymultiverse.databinding.ItemListContentBinding
+import dagger.android.support.DaggerFragment
 
 /**
  * A Fragment representing a list of Pings. This fragment
@@ -25,7 +26,7 @@ import au.com.flymultiverse.databinding.ItemListContentBinding
  * item details side-by-side using two vertical panes.
  */
 
-class ItemListFragment : Fragment() {
+class ItemListFragment : DaggerFragment() {
 
     /**
      * Method to intercept global key events in the

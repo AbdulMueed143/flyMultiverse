@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import au.com.flymultiverse.placeholder.PlaceholderContent
 import au.com.flymultiverse.databinding.FragmentItemDetailBinding
+import dagger.android.support.DaggerFragment
 
 /**
  * A fragment representing a single Item detail screen.
@@ -16,7 +17,7 @@ import au.com.flymultiverse.databinding.FragmentItemDetailBinding
  * in two-pane mode (on larger screen devices) or self-contained
  * on handsets.
  */
-class ItemDetailFragment : Fragment() {
+class ItemDetailFragment : DaggerFragment() {
 
     /**
      * The placeholder content this fragment is presenting.
