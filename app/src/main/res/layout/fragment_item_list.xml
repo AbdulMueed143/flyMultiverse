@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?><!-- Adding the same root's ID for view binding as other layout configurations -->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item_list_container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:bind="http://schemas.android.com/tools">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/item_list"
-        android:name="au.com.flymultiverse.ItemListFragment"
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="listViewModel"
+            type="au.com.flymultiverse.models.viewmodels.AirportListViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/item_list_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        app:layoutManager="LinearLayoutManager"
-        tools:context="au.com.flymultiverse.ItemDetailHostActivity"
-        tools:listitem="@layout/item_list_content" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/airportList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:items="@{listViewModel.airports}" />
+
+        <include layout="@layout/bottom_sheet_airport_detail" />
+
+        <ProgressBar
+            android:layout_gravity="center"
+            bind:visibility="@{listViewModel.isLoading}"
+            android:layout_width="64dp"
+            android:layout_height="64dp">
+
+        </ProgressBar>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

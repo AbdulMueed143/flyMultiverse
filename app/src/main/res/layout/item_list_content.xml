@@ -1,20 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/id_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:textAppearance="?attr/textAppearanceListItem" />
+    <data>
 
-    <TextView
-        android:id="@+id/content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:textAppearance="?attr/textAppearanceListItem" />
-</LinearLayout>
+        <variable
+            name="airportViewModel"
+            type="au.com.flymultiverse.models.viewmodels.AirportListViewModel" />
+
+        <variable
+            name="airport"
+            type="au.com.flymultiverse.models.entitymodels.Airport" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_margin="@dimen/dim_4dp"
+        app:elevation="10dp"
+        app:cardCornerRadius="5dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:orientation="vertical"
+        android:onClick="@{() -> airportViewModel.onAirportItemClick(airport)}"
+
+        android:padding="@dimen/dim_8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/id_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{airport.airportName}"
+                android:layout_margin="@dimen/text_margin"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{airport.airportCode}"
+                android:layout_margin="@dimen/text_margin"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
