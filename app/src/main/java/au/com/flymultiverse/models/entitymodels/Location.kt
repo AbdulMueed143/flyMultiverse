@@ -2,37 +2,27 @@ package au.com.flymultiverse.models.entitymodels
 
 import android.os.Parcel
 import android.os.Parcelable
-import androidx.room.ColumnInfo
-import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
-//@Entity(tableName = Location.TABLE_NAME)
 data class Location(
-//    @ColumnInfo(name = COL_ABOVE_SEA_LEVEL)
     @SerializedName(COL_ABOVE_SEA_LEVEL)
     val aboveSeaLevel : String?,
 
-//    @ColumnInfo(name = COL_LATITUDE)
     @SerializedName(COL_LATITUDE)
     val latitude : Double?,
 
-//    @ColumnInfo(name = COL_LONGITUDE)
     @SerializedName(COL_LONGITUDE)
     val longitude : Double?,
 
-//    @ColumnInfo(name = COL_LATITUDE_RADIUS)
     @SerializedName(COL_LATITUDE_RADIUS)
     val latitudeRadius : Double?,
 
-//    @ColumnInfo(name = COL_LONGITUDE_RADIUS)
     @SerializedName(COL_LONGITUDE_RADIUS)
     val longitudeRadius : Double?,
 
-//    @ColumnInfo(name = COL_LATITUDE_DIRECTION)
     @SerializedName(COL_LATITUDE_DIRECTION)
     val latitudeDirection : String?,
 
-//    @ColumnInfo(name = COL_LONGITUDE_DIRECTION)
     @SerializedName(COL_LONGITUDE_DIRECTION)
     val longitudeDirection : String?,
 
@@ -71,8 +61,6 @@ data class Location(
         override fun newArray(size: Int): Array<Location?> {
             return arrayOfNulls(size)
         }
-
-        const val TABLE_NAME = "location"
 
         const val COL_ABOVE_SEA_LEVEL = "aboveSeaLevel"
         const val COL_LATITUDE = "latitude"
